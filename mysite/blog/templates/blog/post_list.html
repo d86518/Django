@@ -1,7 +1,7 @@
 {% load staticfiles %}
 <html>
     <head>
-        <title>Django blog</title>
+        <title>David's blog</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -11,7 +11,7 @@
     </head>
     <body>
       <div class="page-header">
-        <h1><a href="/">Django Girls Blog</a></h1>
+        <h1><a href="/">David's Blog</a></h1>
       </div>
 
       <div class="content">
@@ -19,13 +19,17 @@
           <div class="col-md-8">
             {% for post in posts %}
                 <div class="post">
-                    <p>published: {{ post.published_date }}</p>
+                    <p>Published: {{ post.published_date }}</p>
                     <h1><a href="">{{ post.title }}</a></h1>
-                    <p>{{ post.text }}</p>
+                    {% autoescape on %}
+                      <p>{{ post.text | linebreaksbr }}</p>
+                    {% endautoescape %}
+                    <!-- linebreaksbr換行 -->
+                    <hr>
                 </div>
             {% endfor %}
+          </div>
         </div>
-    </div>
-</div>
+       </div>
     </body>
 </html>

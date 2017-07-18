@@ -17,3 +17,8 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    # def save(self):
+    #     self.text = self.text.replace("\r\n", "\n")
+    #     self.text = self.text.replace("\n","|safe")
+    #     super(MyModel, self).save()
